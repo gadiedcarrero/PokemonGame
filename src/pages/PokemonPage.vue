@@ -3,7 +3,7 @@
   <div v-else>
     <h1>Que Pokemon es este?</h1>
     <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
-    <PokemonOptions :pokemons="pokemonArr" :correctAnswer="correctAnswer" :incorrectAnswer="incorrectAnswer" @selection-pokemon="checkAnswer" />
+    <PokemonOptions :pokemons="pokemonArr" :correctAnswer="correctAnswer" :incorrectAnswer="selectedAnswer" @selection-pokemon="checkAnswer" />
     <template v-if="showAnswer">
       <h2 class="fade-in">{{ message }}</h2>
       <button @click="newGame" >Nuevo Juego</button>
@@ -32,7 +32,7 @@ export default {
       showAnswer: false,
       message: "",
       correctAnswer: null,
-      incorrectAnswer: null,
+      selectedAnswer: null,
     };
   },
   methods: {
@@ -47,7 +47,7 @@ export default {
       this.showPokemon = true;
       this.showAnswer = true;
       this.correctAnswer = this.pokemon.id;
-      this.incorrectAnswer = pokemonId;
+      this.selectedAnswer = pokemonId;
       if (pokemonId === this.pokemon.id) {
         this.message = `Correcto, ${this.pokemon.name} es este Pokemon!`;
       } else {
