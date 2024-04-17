@@ -3,7 +3,7 @@
   <div v-else>
     <h1>Que Pokemon es este?</h1>
     <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
-    <PokemonOptions :pokemons="pokemonArr" :correctAnswer="correctAnswer" :incorrectAnswer="selectedAnswer" @selection-pokemon="checkAnswer" />
+    <PokemonOptions :pokemons="pokemonArr" :correctAnswer="correctAnswer" :selectedAnswer="selectedAnswer" @selection-pokemon="checkAnswer" />
     <template v-if="showAnswer">
       <h2 class="fade-in">{{ message }}</h2>
       <button @click="newGame" >Nuevo Juego</button>

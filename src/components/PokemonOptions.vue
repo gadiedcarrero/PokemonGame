@@ -3,7 +3,7 @@
     <ul class="optionsgroup">
       <li
         :class="{
-          'border-red': pokemon.id === incorrectAnswer,
+          'border-red': pokemon.id === selectedAnswer && pokemon.id !== correctAnswer,
           'border-green': pokemon.id === correctAnswer,
         }"
         v-for="pokemon in pokemons"
@@ -27,7 +27,7 @@ export default {
     correctAnswer: {
       type: Number,
     },
-    incorrectAnswer: {
+    selectedAnswer: {
       type: Number,
     },
   },
